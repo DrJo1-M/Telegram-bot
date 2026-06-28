@@ -12,7 +12,7 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         ydl_opts = {
             'outtmpl': '/tmp/video.%(ext)s',
-            'format': 'best',
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4',
             'cookiefile': '/app/cookies.txt',
         }
         
