@@ -11,13 +11,8 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     try:
         ydl_opts = {
-    'outtmpl': '/tmp/video.%(ext)s',
-    'format': 'worst',
-    'extractor_args': {
-        'youtube': {
-            'player_client': ['android', 'web'],
-        }
-    },
+            'outtmpl': '/tmp/video.%(ext)s',
+            'format': 'best[filesize<50M]/worst',
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -34,4 +29,4 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle))
-app.run_polling()
+app.run_polling()app.run_polling()
