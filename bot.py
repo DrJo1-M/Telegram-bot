@@ -13,10 +13,9 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ydl_opts = {
     'outtmpl': '/tmp/video.%(ext)s',
     'format': 'worst',
-    'cookiefile': '/app/cookies.txt',
     'extractor_args': {
         'youtube': {
-            'player_client': ['android'],
+            'player_client': ['android', 'web'],
         }
     },
         }
