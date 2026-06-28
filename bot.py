@@ -11,9 +11,9 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     try:
         ydl_opts = {
-    'outtmpl': '/tmp/video.%(ext)s',
-    ''format': 'best/bestvideo+bestaudio',
-    'cookiefile': '/app/cookies.txt',
+            'outtmpl': '/tmp/video.%(ext)s',
+            'format': 'best',
+            'cookiefile': '/app/cookies.txt',
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
