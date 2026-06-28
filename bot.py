@@ -11,9 +11,14 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     try:
         ydl_opts = {
-            'outtmpl': '/tmp/video.%(ext)s',
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4',
-            'cookiefile': '/app/cookies.txt',
+    'outtmpl': '/tmp/video.%(ext)s',
+    'format': 'worst',
+    'cookiefile': '/app/cookies.txt',
+    'extractor_args': {
+        'youtube': {
+            'player_client': ['android'],
+        }
+    },
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
