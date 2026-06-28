@@ -11,8 +11,8 @@ async def handle(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     try:
         ydl_opts = {
-            'outtmpl': '/sdcard/video.%(ext)s',
-            'format': 'best[filesize<200M]/worst',
+            'outtmpl': '/tmp/video.%(ext)s',
+            'format': 'best[filesize<300M]/worst',
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
